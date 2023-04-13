@@ -1,0 +1,133 @@
+
+/* ############################## MAIN PAGE */
+
+/* Global styles */
+
+body {
+    background: linear-gradient(90deg, #fca19e, #C7C5F4, #776BCC);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.logo img {
+  max-width: 200px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  background-color: #0084ff;
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 25px;
+  border: none;
+  font-size: 18px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0051ad;
+}
+
+.button-login {
+  margin-right: 10px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 20px;
+  color: #777;
+  font-size: 12px;
+}
+
+/* ##################### LOGIN PAGE */
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.form input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.form input:focus {
+  outline: none;
+  box-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+
+.form button {
+  background-color: #0084ff;
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 25px;
+  border: none;
+  font-size: 18px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: #0051ad;
+}
+
+.message {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #777;
+  text-align: center;
+}
+
+.message a {
+  color: #0084ff;
+  text-decoration: none;
+}

@@ -1,0 +1,343 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(90deg, #fca19e, #C7C5F4, #776BCC);
+}
+
+/* ##################################################### NAV BAR */
+
+/* CSS - BUTTON LOG OUT */
+.button-24 {
+  background: #FF4742;
+  border: 1px solid #FF4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.button-24:hover,
+.button-24:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #FF4742;
+}
+
+.button-24:active {
+  opacity: .5;
+}
+
+/* buttons related to accept */
+
+#accept {
+  background: #1da72f;
+  border: 1px solid #1caf3c;
+}
+
+#accept:hover,
+#accept:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #1da72f;
+}
+
+/* buttons related to info */
+
+#info {
+  background: #1db4ad;
+  border: 1px solid #30c0ca;
+}
+
+#info:hover,
+#info:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #1db4ad;
+}
+
+/* buttons related to info */
+
+#modify {
+  background: #4088c4;
+  border: 1px solid #56aed6;
+}
+
+#modify:hover,
+#modify:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #4088c4;
+}
+
+/* end of button log out */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.navbar-toggle-icon {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  position: relative;
+  top: 9px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.navbar-toggle-icon::before,
+.navbar-toggle-icon::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  transition: transform 0.2s ease-in-out;
+}
+
+.navbar-toggle-icon::before {
+  top: -6px;
+}
+
+.navbar-toggle-icon::after {
+  top: 6px;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  margin: 0 10px;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+@media screen and (max-width: 1024px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+  
+  .navbar-logo {
+    margin-right: auto;
+  }
+  
+  .navbar-toggle {
+    display: block;
+  }
+  
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .navbar-links li {
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .navbar-links.active {
+    display: flex;
+  }
+  
+  .navbar-toggle.active .navbar-toggle-icon {
+    transform: rotate(45deg);
+  }
+  
+  .navbar-toggle.active .navbar-toggle-icon::before {
+    transform: rotate(90deg) translate(4px, -4px);
+  }
+  
+  .navbar-toggle.active .navbar-toggle-icon::after {
+    transform: rotate(90deg) translate(-4px, 4px);
+  }
+}
+
+/* ##################################################### FOOTER */
+  
+
+
+/* ##################################################### CONTENT */
+
+
+
+/* ######################################################### TASKLIST */
+
+
+#tasks_container {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+
+.not_urgent_tasks, .not_very_urgent_tasks, .urgent_tasks, .very_urgent_tasks, .to_be_done_in_priority_tasks {
+  width: 280px;
+  float: left;
+  margin: 10px;
+  border: 2px solid wheat;
+}
+
+/* Styles pour le formulaire */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+input[type="text"],
+textarea,
+select {
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  font-size: 16px;
+  width: 100%;
+}
+
+input[type="submit"] {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+/* Styles pour la liste de tâches */
+.tasks_container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.not_urgent_tasks {
+  flex-basis: 30%;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.not_urgent_tasks h3 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.task {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.task h4 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.task p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.task .importance {
+  margin: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.task .creator {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.task .date {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.task .status {
+  margin: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.task button {
+  margin: 10px 0;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.task button:hover {
+  background-color: #3e8e41;
+}
+
+  
