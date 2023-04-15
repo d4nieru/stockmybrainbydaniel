@@ -23,10 +23,12 @@
         <p>@if($workspace->pivot->ownership == 1) Role : Propriétaire @elseif ($workspace->pivot->admin == 1) Role : Admin/Superviseur @else Role : Collaborateur @endif</p>
         <br>
 
-        <form method="GET" action="/bookinganappointment/{{ $workspace->id }}">
-            @csrf
-            <button type="submit" class="button-24" id="info">🖋️ Fixer un Rendez-vous pour un collaborateur</button>
-        </form>
+        @if($workspace->pivot->ownership == 1)
+            <form method="GET" action="/bookinganappointment/{{ $workspace->id }}">
+                @csrf
+                <button type="submit" class="button-24" id="info">🖋️ Fixer un Rendez-vous pour un collaborateur</button>
+            </form>
+        @endif
 
         <form method="GET" action="/managemembers/{{ $workspace->id }}">
             @csrf

@@ -143,6 +143,6 @@ Route::get('/myappointments', [Appointments::class, 'showAppointments']);
 
 Route::get('/manageappointments', [Appointments::class, 'showManageAppointments']);
 
-Route::post('/generatelinkforvideoconference/{appointmentid}', [Appointments::class, 'generateLinkForVideoconference']);
+Route::post('/generatelinkforvideoconference', [Appointments::class, 'generateLinkForVideoconference']);
 
 Route::post('/cancelappointment/{appointmentid}', [Appointments::class, 'cancelAppointment']);

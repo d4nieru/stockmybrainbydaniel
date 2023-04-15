@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" type="text/css" href="{{ url('css/styles.css') }}">
     <title>{{ $title }}</title>
 </head>
@@ -13,6 +14,7 @@
     @yield("content")
     @include("components.footer")
     <script src="{{ url('js/navbar.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="{{ url('js/generatelinkforvideoconference.js') }}"></script>
 </body>
 </html>

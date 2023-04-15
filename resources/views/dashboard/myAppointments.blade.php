@@ -6,10 +6,18 @@
 
 @foreach ($user->appointments as $appointment)
     @if($appointment->is_active == true)
-        <h1>{{ $appointment->meeting_date }} - {{ $appointment->meeting_time }}</h1>
-        <h3>{{ $appointment->reason_for_the_meeting }}</h3>
+        <p>Nom du collaborateur :
+        @inject('usr', 'App\Models\User')
+        @php
+            $usr = $usr->find($appointment->host_of_the_meeting_id)
+        @endphp
+        {{ $usr->name }}</p>
+        <p>Email du collaborateur : {{ $usr->email }}</p>
+        <p>Date et l'Heure du rendez-vous : {{ $appointment->meeting_date }} - {{ $appointment->meeting_time }}</p>
+        <p>Raison du rendez-vous : {{ $appointment->reason_for_the_meeting }}</p>
         @if($appointment->videoconference_link == null)
-            <p>Pas de lien pour la visio conférence</p>
+            
+            <button type="button" class="button-24" disabled>Pas de lien pour la visio conférence</button>
         @else
             <p>Lien pour la visio conférence : </p>
             <a href="{{ $appointment->videoconference_link }}">
@@ -26,8 +34,15 @@
 
 @foreach ($user->appointments as $appointment)
     @if($appointment->is_active == false)
-        <h1>{{ $appointment->meeting_date }} - {{ $appointment->meeting_time }}</h1>
-        <h3>{{ $appointment->reason_for_the_meeting }}</h3>
+        <p>Nom du collaborateur :
+        @inject('usr', 'App\Models\User')
+        @php
+            $usr = $usr->find($appointment->host_of_the_meeting_id)
+        @endphp
+        {{ $usr->name }}</p>
+        <p>Email du collaborateur : {{ $usr->email }}</p>
+        <p>Date et l'Heure du rendez-vous : {{ $appointment->meeting_date }} - {{ $appointment->meeting_time }}</p>
+        <p>Raison du rendez-vous : {{ $appointment->reason_for_the_meeting }}</p>
     @endif
 @endforeach
 

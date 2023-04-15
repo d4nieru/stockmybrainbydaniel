@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string("videoconference_link")->nullable();
             $table->boolean("is_active");
             $table->integer("host_of_the_meeting_id");
+            $table->integer("guest_of_the_meeting_id");
             $table->timestamps();
         });
     }

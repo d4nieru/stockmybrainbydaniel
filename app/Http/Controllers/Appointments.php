@@ -44,12 +44,12 @@ class Appointments extends Controller
         $appointment->meeting_time = $request->input("meeting_time");
         $appointment->is_active = 1;
         $appointment->host_of_the_meeting_id = Auth::id();
+        $appointment->guest_of_the_meeting_id = $request->input("user_id");
         $appointment->save();
 
         $appointment_id = $appointment->id;
-        $user_id = $request->input("user_id");
 
-        $user = User::find($user_id);
+        $user = User::find($request->input("user_id"));
         $user->appointments()->attach($appointment_id, ['workspace_id' => $workspaceid]);
 
         return redirect()->back()->withMessage('Le rendez-vous a été planifié avec succès !');
@@ -65,18 +65,11 @@ class Appointments extends Controller
         return view('dashboard.manageAppointments', compact('title', 'appointments'));
     }
 
-    public function generateLinkForVideoconference($appointmentid)
+    public function generateLinkForVideoconference(Request $request)
     {
-        $appointment = Appointment::findOrFail($appointmentid);
+        $appointment = Appointment::findOrFail($request->input('appointmentid'));
 
-        $roomName = $appointment->reason_for_the_meeting;
-
-        $jitsiDomain = 'meet.jit.si'; // Change this to your JITSI domain
-        $jitsiOptions = 'config.disableDeepLinking=true&config.toolbar.hide=true'; // Customize the JITSI options as needed
-        $jitsiRoomName = urlencode($roomName);
-        $jitsiLink = "https://{$jitsiDomain}/{$jitsiRoomName}?{$jitsiOptions}";
-
-        $appointment->videoconference_link = $jitsiLink;
+        $appointment->videoconference_link = $request->input('url');
         $appointment->save();
 
         return redirect()->back();
